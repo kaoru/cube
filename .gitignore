@@ -1,0 +1,23 @@
+## Environment normalization:
+/.bundle
+/vendor/bundle
+
+## Environment Variables & Config
+.env
+.env.development
+.env.test
+.env.staging
+.env.production
+
+## Vim
+**.swp
+.vim
+/.tags
+/.tags_sorted_by_file
+
+## Visual Studio
+.vscode
+
+# MacOS
+.DS_Store
+*/.DS_Store
