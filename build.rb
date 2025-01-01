@@ -93,8 +93,8 @@ class CubeCobra
 
         scryfall_card_data = scryfall.find_card_by("!#{card_name.inspect} s:#{set} cn:#{collector_number}")
 
-        "<<[[!#{card_name}|#{scryfall_card_data[:id]}]]"
-      end.join(' ')
+        "<<[[!#{card_name}|#{scryfall_card_data[:id]}]]>>"
+      end.join('')
     end
   end
 
