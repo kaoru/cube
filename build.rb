@@ -84,7 +84,7 @@ class CubeCobra
     end
 
     def card_images
-      cards.map do |card_name|
+      images = cards.map do |card_name|
         cube_cobra_card_data = cube_cobra.card_by_name(card_name)
 
         set = cube_cobra_card_data['Set']
@@ -93,8 +93,10 @@ class CubeCobra
 
         scryfall_card_data = scryfall.find_card_by("!#{card_name.inspect} s:#{set} cn:#{collector_number}")
 
-        "<<[[!#{card_name}|#{scryfall_card_data[:id]}]]>>"
-      end.join('')
+        "[[!#{card_name}|#{scryfall_card_data[:id]}]]"
+      end
+
+      "<<#{images.join}>>"
     end
   end
 
