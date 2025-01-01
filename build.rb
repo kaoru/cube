@@ -25,6 +25,8 @@ class CubeCobra
   class OverviewBuilder
     include Markdown
 
+    RepeatedCardError = Class.new(StandardError)
+
     attr_reader :title, :description, :decks
 
     def initialize(title:, description:, decks:)
@@ -34,6 +36,8 @@ class CubeCobra
     end
 
     def overview
+      validate!
+
       [
         h2(title),
         hr,
@@ -42,6 +46,14 @@ class CubeCobra
         hr,
         *decks.map(&:overview),
       ].join("\n\n")
+    end
+
+    def validate!
+      decks.flat_map(&:cards).sort.tally.each do |card, count|
+        if count > 1
+          raise RepeatedCardError, "#{card} is used as the image for #{count} decks"
+        end
+      end
     end
   end
 
@@ -133,7 +145,7 @@ ob = CubeCobra::OverviewBuilder.new(
   decks: [
     CubeCobra::Deck.new(title: 'Monowhite Aggro', mana: 'w', stars: 5, cards: ['Isamaru, Hound of Konda', 'Stoneforge Mystic', 'Adanto Vanguard']),
     CubeCobra::Deck.new(title: 'Monoblue Control', mana: 'u', stars: 3, cards: ['Jace, the Mind Sculptor', 'Counterspell', 'Cryptic Command']),
-    CubeCobra::Deck.new(title: 'Monoblack Aggro', mana: 'b', stars: 3, cards: ['Gravecrawler', 'Dark Confidant', 'Thoughtseize']),
+    CubeCobra::Deck.new(title: 'Monoblack Aggro', mana: 'b', stars: 3, cards: ['Knight of the Ebon Legion', 'Graf Reaver', 'Thoughtseize']),
     CubeCobra::Deck.new(title: 'Monored Aggro', mana: 'r', stars: 5, cards: ['Goblin Guide', 'Chain Lightning', 'Sulfuric Vortex']),
     CubeCobra::Deck.new(title: 'Monogreen Ramp', mana: 'g', stars: 4, cards: ['Fyndhorn Elves', 'Oracle of Mul Daya', 'Primeval Titan']),
     CubeCobra::Deck.new(title: 'Azorius Control', mana: 'wu', stars: 4, cards: ['Swords to Plowshares', 'Mana Leak', 'Teferi, Time Raveler']),
@@ -147,12 +159,12 @@ ob = CubeCobra::OverviewBuilder.new(
     CubeCobra::Deck.new(title: 'Orzhov Tokens', mana: 'wb', stars: 3, cards: ['Lingering Souls', 'Bitterblossom', 'Intangible Virtue']),
     CubeCobra::Deck.new(title: 'Izzet Control', mana: 'ur', stars: 3, cards: ['Glen Elendra Archmage', 'Anger of the Gods', 'Electrolyze']),
     CubeCobra::Deck.new(title: 'Izzet Artifacts', mana: 'ur', stars: 4, cards: ['Urza, Lord High Artificer', 'Goblin Welder', 'Myr Battlesphere']),
-    CubeCobra::Deck.new(title: 'Izzet Twin', mana: 'ur', stars: 4, cards: ['Pestermite', 'Kiki-Jiki, Mirror Breaker', 'Splinter Twin']),
+    CubeCobra::Deck.new(title: 'Izzet Twin', mana: 'ur', stars: 4, cards: ['Pestermite', 'Kiki-Jiki, Mirror Breaker', 'Expressive Iteration']),
     CubeCobra::Deck.new(title: 'Golgari Reanimator', mana: 'bg', stars: 3, cards: ['Archon of Cruelty', 'Fauna Shaman', 'Meren of Clan Nel Toth']),
     CubeCobra::Deck.new(title: 'Golgari Ramp', mana: 'bg', stars: 3, cards: ['Veteran Explorer', 'Cabal Therapy', 'Flare of Cultivation']),
     CubeCobra::Deck.new(title: 'Boros Aggro', mana: 'rw', stars: 3, cards: ['Mother of Runes', 'Robber of the Rich', "Otharri, Suns' Glory"]),
     CubeCobra::Deck.new(title: 'Simic Ramp', mana: 'gu', stars: 5, cards: ['Mana Drain', 'Birds of Paradise', 'Hydroid Krasis']),
-    CubeCobra::Deck.new(title: 'Bant Control', mana: 'gwu', stars: 1, cards: ['Noble Hierarch', 'Restoration Angel', 'Consecrated Sphinx']),
+    CubeCobra::Deck.new(title: 'Bant Control', mana: 'gwu', stars: 1, cards: ['Noble Hierarch', 'Loran of the Third Path', 'Consecrated Sphinx']),
     CubeCobra::Deck.new(title: 'Esper Control', mana: 'wub', stars: 3, cards: ['Day of Judgment', 'Fact or Fiction', 'Toxic Deluge']),
     CubeCobra::Deck.new(title: 'Esper Reanimator', mana: 'wub', stars: 3, cards: ['Elesh Norn, Grand Cenobite', 'Looter il-Kor', 'Grave Titan']),
     CubeCobra::Deck.new(title: 'Grixis Reanimator', mana: 'ubr', stars: 3, cards: ['Chart a Course', 'Exhume', 'Glorybringer']),
