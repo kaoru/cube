@@ -76,7 +76,7 @@ class CubeCobra
         h3("#{title} #{mana_symbols}"),
         '⭐' * stars,
         card_images
-      ].join("\n\n")
+      ].join("\n")
     end
 
     def mana_symbols
@@ -143,7 +143,7 @@ end
 
 ob = CubeCobra::OverviewBuilder.new(
   title: 'My 360 card cube',
-  description: "My goal is to have a legacy power level cube with no old frame cards that is accessible to newer players.\nAll cards must be English, modern frame, and non-foil. As a happy coincidence that also means it has no cards from the reserved list.\nMy playgroup includes people I've taught to play in the last few years, so I've tried to exclude cards that might be confusing during drafting and playing. To that end, I've cut a bunch of mechanics entirely: storm, morph, level up, etc. Originally I excluded all double-faced cards but I've decided to include the Magic Origins planeswalkers because I love Jace, Vryn's Prodigy.",
+  description: "My goal is to have a legacy power level cube with no old frame cards that is accessible to newer players.\n\nAll cards must be English, modern frame, and non-foil. As a happy coincidence that also means it has no cards from the reserved list.\n\nMy playgroup includes people I've taught to play in the last few years, so I've tried to exclude cards that might be confusing during drafting and playing. To that end, I've cut a bunch of mechanics entirely: storm, morph, level up, etc. Originally I excluded all double-faced cards but I've decided to include the Magic Origins planeswalkers because I love Jace, Vryn's Prodigy.",
   decks: [
     CubeCobra::Deck.new(title: 'Monowhite Aggro', mana: 'w', stars: 5, cards: ['Isamaru, Hound of Konda', 'Stoneforge Mystic', 'Adanto Vanguard']),
     CubeCobra::Deck.new(title: 'Monoblue Control', mana: 'u', stars: 3, cards: ['Jace, the Mind Sculptor', 'Counterspell', 'Cryptic Command']),
