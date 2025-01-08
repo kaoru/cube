@@ -6,8 +6,39 @@ require 'cgi'
 require 'csv'
 require 'json'
 require 'open-uri'
+require 'digest'
 
 class CubeCobra
+  module UrlFetcher
+    def fetch_url_response(url)
+      if cached?(url)
+        read_cache(url)
+      else
+        response = URI.open(url).read
+        write_cache(url, response)
+        response
+      end
+    end
+
+    private
+
+    def cached?(url)
+      File.file?(cache_file_for_url(url))
+    end
+
+    def read_cache(url)
+      File.open(cache_file_for_url(url)).read
+    end
+
+    def write_cache(url, response)
+      File.write(cache_file_for_url(url), response)
+    end
+
+    def cache_file_for_url(url)
+      [__dir__, '.cache', Digest::SHA512.hexdigest(url)].join('/')
+    end
+  end
+
   module Markdown
     def h3(str)
       "### #{str}"
@@ -101,6 +132,8 @@ class CubeCobra
   end
 
   class CubeCobra
+    include UrlFetcher
+
     CardNotFoundError = Class.new(StandardError)
 
     def card_by_name(name)
@@ -114,7 +147,7 @@ class CubeCobra
     end
 
     def csv
-      URI.open(url).read
+      fetch_url_response(url)
     end
 
     def url
@@ -123,11 +156,13 @@ class CubeCobra
   end
 
   class Scryfall
+    include UrlFetcher
+
     TooManyCardsError = Class.new(StandardError)
     CardNotFoundError = Class.new(StandardError)
 
     def find_card_by(search)
-      json = URI.open("https://api.scryfall.com/cards/search?q=#{CGI.escape(search)}").read
+      json = fetch_url_response("https://api.scryfall.com/cards/search?q=#{CGI.escape(search)}")
       data = JSON.parse(json, symbolize_names: true)
 
       if data[:data].count == 1
