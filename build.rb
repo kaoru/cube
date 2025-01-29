@@ -183,7 +183,7 @@ ob = CubeCobra::OverviewBuilder.new(
     CubeCobra::Deck.new(title: 'Monowhite Aggro', mana: 'w', stars: 5, cards: ['Isamaru, Hound of Konda', 'Stoneforge Mystic', 'Adanto Vanguard']),
     CubeCobra::Deck.new(title: 'Monoblue Control', mana: 'u', stars: 3, cards: ['Jace, the Mind Sculptor', 'Counterspell', 'Cryptic Command']),
     CubeCobra::Deck.new(title: 'Monoblack Aggro', mana: 'b', stars: 3, cards: ['Knight of the Ebon Legion', 'Emperor of Bones', 'Thoughtseize']),
-    CubeCobra::Deck.new(title: 'Monored Aggro', mana: 'r', stars: 5, cards: ['Goblin Guide', 'Chain Lightning', 'Sulfuric Vortex']),
+    CubeCobra::Deck.new(title: 'Monored Aggro', mana: 'r', stars: 5, cards: ['Goblin Guide', 'Chain Lightning', 'Fireblast']),
     CubeCobra::Deck.new(title: 'Monogreen Ramp', mana: 'g', stars: 4, cards: ['Fyndhorn Elves', 'Oracle of Mul Daya', 'Primeval Titan']),
     CubeCobra::Deck.new(title: 'Azorius Control', mana: 'wu', stars: 4, cards: ['Swords to Plowshares', 'Mana Leak', 'Teferi, Time Raveler']),
     CubeCobra::Deck.new(title: 'Dimir Reanimator', mana: 'ub', stars: 5, cards: ["Jace, Vryn's Prodigy", 'Animate Dead', 'Griselbrand']),
