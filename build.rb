@@ -104,8 +104,7 @@ class CubeCobra
 
     def overview
       [
-        h3("#{title} #{mana_symbols}"),
-        '⭐' * stars,
+        h3("#{mana_symbols} #{title} #{'⭐' * stars}"),
         card_images
       ].join("\n")
     end
