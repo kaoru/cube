@@ -191,7 +191,7 @@ ob = CubeCobra::OverviewBuilder.new(
     CubeCobra::Deck.new(title: 'Rakdos Aggro Control', mana: 'br', stars: 3, cards: ['Deep-Cavern Bat', 'Ragavan, Nimble Pilferer', 'Alesha, Who Laughs at Fate']),
     CubeCobra::Deck.new(title: 'Rakdos Sneak Attack', mana: 'br', stars: 3, cards: ['Sneak Attack', 'Kokusho, the Evening Star', 'Ulamog, the Infinite Gyre']),
     CubeCobra::Deck.new(title: 'Gruul Midrange', mana: 'rg', stars: 2, cards: ['Pyrogoyf', "Esika's Chariot", 'Bloodbraid Elf']),
-    CubeCobra::Deck.new(title: 'Gruul Lands', mana: 'rg', stars: 3, cards: ['Ramunap Excavator', 'Titania, Protector of Argoth', 'Wrenn and Six']),
+    CubeCobra::Deck.new(title: 'Gruul Lands', mana: 'rg', stars: 2, cards: ['Titania, Protector of Argoth', 'Wrenn and Six', 'Wasteland']),
     CubeCobra::Deck.new(title: 'Selesnya Ramp', mana: 'gw', stars: 1, cards: ['Timeless Dragon', 'Fanatic of Rhonas', "Mirari's Wake"]),
     CubeCobra::Deck.new(title: 'Orzhov Control', mana: 'wb', stars: 2, cards: ['Austere Command', 'Necropotence', 'Vindicate']),
     CubeCobra::Deck.new(title: 'Orzhov Tokens', mana: 'wb', stars: 3, cards: ['Lingering Souls', 'Bitterblossom', 'Intangible Virtue']),
