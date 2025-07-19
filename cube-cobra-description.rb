@@ -209,7 +209,7 @@ ob = CubeCobra::OverviewBuilder.new(
     CubeCobra::Deck.new(title: 'Grixis Twin', mana: 'ubr', stars: 3, cards: ['Deceiver Exarch', 'Demonic Tutor', 'Splinter Twin']),
     CubeCobra::Deck.new(title: 'Jund', mana: 'brg', stars: 3, cards: ['Dark Confidant', 'Lightning Bolt', 'Tarmogoyf']),
     CubeCobra::Deck.new(title: 'Naya Ramp', mana: 'rgw', stars: 1, cards: ['Palace Jailer', 'Ancient Grudge', 'Avenger of Zendikar']),
-    CubeCobra::Deck.new(title: 'Abzan Reanimator', mana: 'wbg', stars: 1, cards: ['Sun Titan', 'Collective Brutality', 'Terastodon']),
+    CubeCobra::Deck.new(title: 'Abzan Midrange', mana: 'wbg', stars: 2, cards: ['Knight of Autumn', 'Pest Control', 'Grist, the Hunger Tide']),
     CubeCobra::Deck.new(title: 'Jeskai Control', mana: 'urw', stars: 3, cards: ['Occult Epiphany', 'Unholy Heat', 'Path to Exile']),
     CubeCobra::Deck.new(title: 'Jeskai Twin', mana: 'urw', stars: 4, cards: ['Dig Through Time', 'Zealous Conscripts', 'Restoration Angel']),
     CubeCobra::Deck.new(title: 'Sultai Midrange', mana: 'bgu', stars: 3, cards: ['Tasigur, the Golden Fang', 'Sylvan Library', 'Ponder']),
