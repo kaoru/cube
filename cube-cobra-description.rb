@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'pry'
+require 'debug'
 
 require 'cgi'
 require 'csv'
