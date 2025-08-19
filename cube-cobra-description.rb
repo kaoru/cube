@@ -35,7 +35,7 @@ class CubeCobra
     end
 
     def cache_file_for_url(url)
-      [__dir__, '.cache', Digest::SHA512.hexdigest(url)].join('/')
+      [__dir__, '.cache', "#{URI.parse(url).hostname}-#{Digest::SHA512.hexdigest(url)}"].join('/')
     end
   end
 
