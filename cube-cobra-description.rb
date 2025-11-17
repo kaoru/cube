@@ -76,7 +76,7 @@ class CubeCobra
         h2('Archetypes and inspiration'),
         hr,
         *decks.map(&:overview),
-      ].join("\n\n")
+      ].join("\n\n").gsub("\n\n", "\n\n&nbsp;\n\n")
     end
 
     def validate!
